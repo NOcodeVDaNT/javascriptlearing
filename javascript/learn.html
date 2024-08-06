@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    #ved{
+        
+      border: 2px solid black;
+      background-color: aqua; 
+      height: 50px;
+
+    }
+    #btn{
+        color: aqua;
+    }
+</style>
+<body>
+<div  id="ved"class="CLASS">VEDANT</div>
+<div class="CLASS">DAHAKE</div>
+<button id="btn1">click me!</button>
+<div class="CLASS"></div>  
+</body>
+<script>
+
+    let name=prompt("hellow wolrd");
+    console.log(name);
+
+    for( let i=0;i<3;i++)
+    {
+        console.log(i);
+    }
+ 
+    
+
+//for of loop
+//used for array and strings
+    let str="vedant";
+    for(let i of str)
+    {
+     console.log(i);
+    }
+
+
+
+//for in loop
+// used for objects
+let object={
+    name:"vedant dahake",
+    age:18,
+    cgpa:8.27,
+    result:true,
+};
+for(let key in object){
+    console.log("key=",key,"value=",object[key]);
+
+}
+
+//lower case()
+let stri="VEDANT DAHAKE";
+let newstr=stri.toLowerCase();
+console.log(newstr);
+
+
+
+                                                          //ARRAYS
+                                
+let names=[1,2,"vedant",69];
+console.log(names);
+console.log(names[2]);
+
+
+//looping in arrays
+let hero=["ironman","hulk","thor"];
+for(let i of hero){
+    console.log(i);
+
+}
+
+
+//method in array
+hero.push("captain america","captain marvel");
+let deleteditem=hero.pop();  //delet last itrem from array and also return that item
+
+
+let dc=["superman","batman","joker"];
+let marvel=["ironman","hulk","thor"];
+let heroes=marvel.concat(dc);
+console.log(heroes)
+
+
+let number=[0,1,2,3,4,5,6,7,8,9];
+number.splice(2,2,101,102);  //splice(deleted index from , how many items to be deleted , newly added items...)
+console.log(number);
+
+
+
+                                                              //FUNCTIONS
+
+
+function my_func(nam)
+{
+  console.log("hello wolrd",nam);
+  return nam;
+}
+let nam=my_func("vedant dahake");
+console.log(nam);
+
+
+//arrow function :- these function (defination of function) can be store in variable i.e name of function
+let sum=(a,b)=>{
+    return a+b;
+
+}
+
+
+//foreach loop in arrays
+let count=[1,2,3,4,5];
+count.forEach((i,index) => {
+    console.log(i,index);               // i will contain elements of array count in each step  of loop
+
+    
+});
+
+
+
+
+let nums=[1,2,3,4,5];
+let cal=i=>{
+console.log(i*i);
+}
+nums.forEach(cal);
+
+    
+
+
+
+//ARRAY METHODS
+
+//map:- same as for each but it craetes a new array
+let newarr=nums.map((val)=>{
+   return val*2;
+
+});
+console.log(newarr);
+
+
+//filtre:-creates a new array of elemnst that gives true for given condition
+let arrnew=nums.filter((val)=>{
+    return val%2===0;
+//this will return even value from array nums
+});
+console.log(arrnew);
+
+
+
+//reduce:- perform some opration and reduce the array to single value and return that single value
+const initial=0;
+const sums=nums.reduce((previous,current)=>{
+return previous+current;
+
+});
+
+console.log(sums);
+
+
+
+
+                                          //DOCUMENT OBJECT MODULE (DOM)
+
+  let ved= document.querySelector("#ved");
+  ved.innerHTML="vedu";
+  ved.innerText='sanjay';
+
+  //STYLE
+  ved.style.color="red";
+  ved.style.backgroundColor="black";
+
+
+
+//CREATE AN EEMENT AND THEN INSERTION OF THAT ELEMET
+let btn=document.createElement("button");
+btn.innerText="click me";
+
+
+//insertion |display on screen the new created element
+
+
+ved.append(btn);  // last but inside box
+ved.prepend(btn); // first but inside box
+ved.after(btn);  //last but outdie the box
+ved.before(btn); // first but outsode the box
+
+btn.remove();  // to delete inserted element
+
+
+//EVENTS IN JAVA SCRIPT
+let newbtn=document.querySelector("#btn1");
+newbtn.onclick=()=> {
+
+console.log("button was clicked");
+};
+
+
+//type of evvents can be refer to mdn docmentation
+
+//NEW WAY TO ADD EVENT IS EVENT LISTINERSTHAT IS MORE EFFIECENT AND WE CAN ADD MULTPLE EVENT ONJ ONE NODE
+
+newbtn.addEventListener("mouseover",()=>{
+    console.log("this is event listiners");
+
+}
+);
+
+
+                                                    // OBJECT ORIENTED PROGRAMMING IN JS
+
+
+//objects
+const student={
+    name:"vedant dahake",
+    age:18,
+    marks:6.3,
+
+    //function in objects
+
+    printmarks:function(){
+        console.log("marks is :",this.marks);
+
+    },
+};
+
+//prototype
+
+const employee={
+    caltax(){
+        console.log("your tax is 12 %");
+
+    },
+};
+
+
+const karan={
+
+    salary:5000,
+};
+
+// to use caltax function in karan use prototype
+
+karan.__proto__=employee;
+
+
+//CLASSES IN JAVA SCRIPT
+class car{
+
+    //constuctor:- invokes whenever an obj creted fo this class type
+    constructor(model,milage){
+        console.log("constructor evoked");
+        this.model=model;
+        this.milage=milage;
+
+    }
+    start(){
+        console.log("start");
+
+    }
+    stop(){
+        console.log("stop");
+    }
+    setbrand(brand){
+        this.brand=brand;
+
+    }
+}
+
+let audi=new car("suv",25);
+audi.start();
+audi.stop();
+audi.setbrand("audi");
+
+
+//inheritence concept
+class parent{
+    constructor(surname){
+        console.log("surname");
+        this.surname=surname;
+
+    }
+    bloodgroup(){
+        console.log("blood");
+
+    }
+    
+}
+class child extends parent{
+    //now parents properties i herited in child and blood finction can be acces in child type object laso
+
+     //to call constructor in child class it must call first parent class constructor using "super()"keyword
+     constructor(name,surname){
+        super(surname); //invoke parent class constructor and also help to give input to parent class method
+        this.name=name;
+     }
+     
+
+}
+
+let childobj=new child("vedant","dahake");
+ 
+
+
+                                                        //CALLBACK TIMEOUT ETC..
+//SETTIMEOUT
+console.log("1");
+console.log("2");
+
+setTimeout(()=>
+{
+    console.log("inside settimeout fuction is passes and time is passes afteer which a function will run")
+},5000)                           //5000=5second
+
+console.log("3");
+
+//CALL BACK 
+
+function sam(a,b){
+    console.log(a+b);
+
+}
+
+function calculator(a,b,sam){
+    sam(a,b);
+
+}
+calculator(10,30,sam);
+//sam is callback function using a input argumentin calulator function
+//pass call back function only by its name
+
+//timestap=29:00(youtube pe jake dekho)
+function getdata(dataid, getnextdata){
+    setTimeout(()=>{  
+        console.log("data",dataid);
+    if(getnextdata){
+        getnextdata();
+
+    }
+},2000)
+
+  
+}
+getdata(1,()=>{
+    console.log("getting data 2....");
+    getdata(2,()=>{
+        console.log("getting data 3....");
+        getdata(3);
+    });
+
+})
+
+
+//ABOVE COMPLEX CODE IS CALLED CALL BACK HELL TO SOLVE THIS WE USE PROMISES
+//PROMISES:-
+                      
+
+
+// yputube pe dekhe yr
+// reffer notes ..
+
+
+//PROMISE CHAINING 
+
+function fetchdata(dataid){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            console.log("data",dataid);
+            resolve("success");
+
+        },10000);//10sec
+
+            
+    });
+}
+// promise chahing:-
+fetchdata(1).then(()=>{
+    console.log("data 1 fetched");
+    fetchdata(2).then(()=>{
+        console.log("data 2 fetched");
+    });
+});
+
+// actual promise chaing efficnet then above:-
+fetchdata(1).then((res)=>{
+    return fetchdata(2);       //since it returns fetchdata (2) which return us a promise thats why we can use .THEN()
+}).then((res)=>{
+    return fetchdata(3);
+
+}).then((res)=>{
+    console.log(res);
+
+});
+
+
+
+//ANOTHER METHOD TO REPLACE PROMISES IS ASYNC AWAIT
+//ASYN USE WITH ANY FUNCTION AND IT ALWAYS RETURN A PROMISE 
+//AWAIT PAUSES TE EXECUTION OF ITS SOURROUNDING ASNNC FUNCTION UNTLI PROMISE IS SETTLED
+//AWAIT KEYWORD USES INSIDE ASUNC FUNCTION
+
+function api(){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            console.log("whether data");
+            resolve(200);
+        },2000);
+
+    });
+
+}
+async function getweatherdata(){
+    
+   await api();//1st thi call will execute the  another will proceed thats what we do in promises and callbacks:= 
+   await api();    //we want 1st function to execute then next one to proceed  with repecting to settimout timing
+   await api();                    
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                //API FETCH
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>
